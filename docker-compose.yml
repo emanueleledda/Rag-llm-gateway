@@ -1,0 +1,20 @@
+services:
+  rag-llm-gateway:
+    build:
+      context: ../
+      dockerfile: Rag-llm-gateway/Dockerfile
+    container_name: rag-llm-gateway
+    environment:
+      GRPC_PORT: "50051"
+      LOG_LEVEL: "DEBUG"
+      LLM_MODEL: "${LLM_MODEL:-gpt-4o-mini}"
+      LLM_TEMPERATURE: "${LLM_TEMPERATURE:-0.2}"
+      LLM_MAX_TOKENS: "${LLM_MAX_TOKENS:-1024}"
+      OPENAI_API_KEY: "${OPENAI_API_KEY}"
+    ports:
+      - "50054:50051"
+
+networks:
+  default:
+    name: rag-shared-network
+    external: true
