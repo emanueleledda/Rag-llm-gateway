@@ -34,6 +34,7 @@ WORKDIR /app
 COPY Rag-llm-gateway/server.py /app/server.py
 COPY Rag-llm-gateway/service.py /app/service.py
 COPY Rag-llm-gateway/openai_client.py /app/openai_client.py
+COPY Rag-llm-gateway/rewrite_prompt.py /app/rewrite_prompt.py
 
 ENV PYTHONPATH=/app:/app/generated \
     GRPC_PORT=50051

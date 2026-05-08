@@ -10,6 +10,10 @@ services:
       LLM_MODEL: "${LLM_MODEL:-gpt-4o-mini}"
       LLM_TEMPERATURE: "${LLM_TEMPERATURE:-0.2}"
       LLM_MAX_TOKENS: "${LLM_MAX_TOKENS:-1024}"
+      # Query-rewrite model knobs (small/fast/deterministic by default).
+      LLM_REWRITE_MODEL: "${LLM_REWRITE_MODEL:-gpt-4o-mini}"
+      LLM_REWRITE_TEMPERATURE: "${LLM_REWRITE_TEMPERATURE:-0.0}"
+      LLM_REWRITE_MAX_TOKENS: "${LLM_REWRITE_MAX_TOKENS:-256}"
       OPENAI_API_KEY: "${OPENAI_API_KEY}"
     ports:
       - "50054:50051"
